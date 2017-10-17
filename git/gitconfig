@@ -1,0 +1,133 @@
+;; Code from https://github.com/s3rvac/dotfiles
+
+[color]
+	; Enable colored output.
+	ui = true
+
+[color "grep"]
+	; Match my colors used by the system grep.
+	filename = magenta
+	match = yellow bold
+	separator = cyan
+
+[alias]
+	a = add
+	aa = add --update
+	aaa = add --all
+	ap = add --patch
+	ar = commit --verbose --amend --reset-author
+	aar = "!git aa && git ar"
+	aaar = "!git aaa && git ar"
+	authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
+	bl = blame
+	br = branch -vv
+	bra = branch --all -vv
+	c = commit --verbose
+	ca = commit --verbose --all
+	clear = reset --hard
+	cl = clone
+	conflicts = diff --name-only --diff-filter=U --relative
+	co = checkout
+	cob = checkout -b
+	cop = checkout -p
+	cot = checkout -t
+	cp = cherry-pick
+	d = diff
+	da = diff HEAD
+	ds = diff --staged
+	; https://github.com/s3rvac/git-edit-index
+	ei = edit-index
+	f = fetch --prune
+	g = grep
+	ignored = ls-files --exclude-standard --ignored --others
+	l = "!git --no-pager log -20 --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'; echo"
+	ll = log --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+	lla = log --all --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+	lf = log --name-status --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+	lp = log --patch --format=fuller
+	lg = log --graph --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+	lga = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+	m = merge --no-ff
+	p = push
+	pb = "!git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`"
+	forced-push = push --force-with-lease
+	pl = pull --rebase=preserve --stat --prune
+	rb = rebase --preserve-merges
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbs = rebase --skip
+	s = status --short --branch
+	sh = stash
+	sha = stash apply
+	shd = stash drop
+	shl = stash list
+	shp = stash pop
+	shs = stash show -p
+	sw = show --format=fuller
+	sf = show --pretty="format:" --name-status
+	sync-fork="!git fetch upstream && git rebase upstream/`git rev-parse --abbrev-ref HEAD` && git push"
+	tags = tag --list -n1
+	today = "!git ll --since=midnight"
+	; https://github.com/aanand/git-up
+	u = up
+	undo = reset --soft HEAD^
+	wip = "!git add --all && git commit -m 'WIP'"
+	unwip = "!if [ `git show --oneline --pretty='%s' | head -n1` == 'WIP' ]; then git undo && git reset; fi"
+
+[advice]
+	; Make git a little less verbose.
+	pushNonFastForward = false
+	statusHints = false
+	commitBeforeMerge = false
+	resolveConflict = false
+	detachedHead = false
+
+[core]
+	; Whitespace problems that git should recognize.
+	whitespace = trailing-space,space-before-tab
+	; Used pager.
+	pager = less -iFRXS -x4
+
+[diff]
+	; Allow `git diff` to do basic rename and copy detection.
+	renames = copies
+
+[fetch]
+	; Automatically prune during `git fetch`.
+	prune = true
+
+[push]
+	; `git push` without any refspec will push the current branch out to the
+	; same name at the remote repository only when it is set to track the
+	; branch with the same name over there.
+	default = simple
+	; Check that all submodules have been properly pushed before pushing the
+	; main project.
+	recurseSubmodules = check
+
+[rebase]
+	; Automatically stash before a rebase and unstash afterwards.
+	autoStash = true
+
+[status]
+	; Use a submodule-aware status.
+	submoduleSummary = true
+
+[merge]
+	; The used merge tool.
+	tool = vimdiff
+
+[sendemail]
+	; Review and edit each patch before sending.
+	annotate = true
+	; Always confirm before sending.
+	confirm = always
+	; Don't send every patch as a reply to the previous patch.
+	chainreplyto = false
+
+[credential]
+	; Enable password cache for http/https and make it timeout after 1 hour.
+	helper = cache --timeout=7200
+
+
