@@ -1,0 +1,57 @@
+##################################
+#  __ _| (_) __ _ ___  ___  ___  #
+# / _` | | |/ _` / __|/ _ \/ __| #
+#| (_| | | | (_| \__ \  __/\__ \ #
+# \__,_|_|_|\__,_|___/\___||___/ #
+##################################
+
+#Abre el fichero de alias
+alias aliases="gnome-open ~/.bash_aliases"
+
+#Si... escribo celar en vez de clear cuando voy rapido
+alias celar="clear"
+
+#Forma mas rapida de limpiar la pantalla
+alias c="clear"
+
+#Que la fuerza te acompañe
+alias starwars="telnet towel.blinkenlights.nl"
+
+#Forma corta de retroceder en carpetas
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+
+alias www='gnome-open /var/www/'
+alias html='gnome-open /var/www/html'
+alias aerror='tail /var/log/apache2/error.log'
+
+## Colorize the ls output ##
+alias ls='ls --color=auto'
+ 
+## Use a long listing format ##
+alias ll='ls -la'
+ 
+## Show hidden files ##
+alias l.='ls -d .* --color=auto'
+
+# handy short cuts #
+alias h='history'
+alias j='jobs -l'
+
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+alias ports='netstat -tulanp'
+
+#my default browser
+alias browser=chrome
