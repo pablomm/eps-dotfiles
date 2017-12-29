@@ -1,0 +1,28 @@
+## General
+suffix=none # Desactiva la generacion de copias .orig
+indent=spaces=4 # Indenta con 4 espacios
+convert-tabs # Convierte todos los tabuladores a espacios
+
+## Braces
+style=stroustrup # https://en.wikipedia.org/wiki/Indentation_style#Variant:_Stroustrup
+
+## Argumento no reconocido la en version 2.05.1
+## break-closing-braces
+
+## Rompe las sentencias } else if() { en dos lineas
+break-elseifs
+
+
+indent-switches # Indenta el cuerpo de las sentencias `switch`
+
+## Opcion no reconocida la en version 2.05.1
+## attach-closing-while # Monta el `while` de un `do { ... } while` en el corchete (vease: Stroustrup)
+ 
+## Padding
+pad-header # Inserta un espacio entre un `if`, `while`, etc. y los parentesis
+
+## Opcion no reconocida la en version 2.05.1
+## pad-comma # Inserta un espacio despues de las comas
+
+unpad-paren # Quita los espacios alrededor de los parentesis
+align-pointer=type # Alinea los `*` de los punteros con el tipo
