@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 CONFIG="mimeapps.custom1.list"
 MIMEAPPS=$(echo -n "$HOME/.local/share/applications/mimeapps.list")
 BACK_UP="../backup/mimeapps.list.backup"
@@ -16,6 +15,18 @@ if [ -e $MIMEAPPS ]; then
 	fi
 
 	cp $MIMEAPPS $BACK_UP
+fi
+
+if [ ! -d "$HOME/.local" ]; then
+	mkdir "$HOME/.local"
+fi
+
+if [ ! -d "$HOME/.local/share" ]; then
+	mkdir "$HOME/.local/share"
+fi
+
+if [ ! -d "$HOME/.local/share/applications" ]; then
+	mkdir "$HOME/.local/share/applications"
 fi
 
 cat $CONFIG > $MIMEAPPS
