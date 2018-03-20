@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+UnidadH="$HOME/UnidadH"
+
+if [ -f "$UNIDADH/eps-scripts/gnome-terminal.custom.xml" ]; then
+	gconftool-2 --load="$PREFIX/eps-dotfiles/gnome-terminal.custom.xml"
+fi
 
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
