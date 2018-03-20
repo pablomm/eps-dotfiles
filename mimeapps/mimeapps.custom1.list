@@ -1,0 +1,32 @@
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+application/x-shellscript=sublime_text.desktop
+application/xml=sublime_text.desktop
+text/x-csrc=sublime_text.desktop
+text/x-chdr=sublime_text.desktop
+text/x-c++hdr=sublime_text.desktop
+text/x-c++src=sublime_text.desktop
+text/x-java=sublime_text.desktop
+application/x-php=sublime_text.desktop
+text/css=sublime_text.desktop
+application/javascript=sublime_text.desktop
+text/plain=sublime_text.desktop
+application/pdf=evince.desktop
+
+[Added Associations]
+application/x-shellscript=sublime_text.desktop;
+application/xml=sublime_text.desktop;
+text/x-csrc=sublime_text.desktop;
+text/x-chdr=sublime_text.desktop;
+text/x-c++hdr=sublime_text.desktop;
+text/x-c++src=sublime_text.desktop;
+text/x-java=sublime_text.desktop;
+application/x-php=sublime_text.desktop;
+text/css=sublime_text.desktop;
+application/javascript=sublime_text.desktop;
+text/plain=sublime_text.desktop;
+application/pdf=evince.desktop;
