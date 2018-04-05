@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+################################################################################
+#                          __ _                       _   _                    #
+#                         / _(_)                     | | (_)                   #
+#          ___ ___  _ __ | |_ _  __ _ _   _ _ __ __ _| |_ _  ___  _ __         #
+#         / __/ _ \| '_ \|  _| |/ _` | | | | '__/ _` | __| |/ _ \| '_ \        #
+#        | (_| (_) | | | | | | | (_| | |_| | | | (_| | |_| | (_) | | | |       #
+#         \___\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\__|_|\___/|_| |_|       #
+#                               __/ |                                          #
+#                              |___/                                           #
+################################################################################
+# Fichero con los parametros de configuracion                                  #
+# Contiene los parametros utilizados por el resto de scripts                   #
+# No ejecuta ningun cambio al ejecutarlo solo declara las variables            #
+################################################################################
+
+#####################
+# Distribucion del teclado
+
+keyboard_language=es
+
+#####################
+# Path a la unidad H
+
+export UnidadH="$HOME/UnidadH"
+
+######################
+# Path a la carpeta donde esta situado el repositorio
+
+export EPS_SCRIPTS="$( dirname "${BASH_SOURCE[0]}" )"
+
+
+######################
+# Nombre de archivo con configuracion de mimeapps
+#
+# mimeapps.custom1.list -- google-chrome + atom
+# mimeapps.custom2.list -- google-chrome + sublime
+
+export mimeappsFile="mimeapps.custom1.list"
+
+
+
