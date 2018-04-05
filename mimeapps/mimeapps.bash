@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-CONFIG="mimeapps.custom1.list"
+
+
+#CONFIG="mimeapps.custom1.list"
+CONFIG="mimeapps.custom2.list"
 MIMEAPPS=$(echo -n "$HOME/.local/share/applications/mimeapps.list")
 BACK_UP="../backup/mimeapps.list.backup"
 BACK_UP_FOLDER="../backup"

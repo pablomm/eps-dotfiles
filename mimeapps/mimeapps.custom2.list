@@ -1,0 +1,36 @@
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+application/x-shellscript=atom.desktop
+application/xml=atom.desktop
+text/x-csrc=atom.desktop
+text/x-chdr=atom.desktop
+text/x-c++hdr=atom.desktop
+text/x-c++src=atom.desktop
+text/x-java=atom.desktop
+application/x-php=atom.desktop
+text/css=atom.desktop
+application/javascript=atom.desktop
+text/plain=atom.desktop
+application/pdf=evince.desktop
+text/x-makefile=atom.desktop
+text/x-python=atom.desktop
+
+[Added Associations]
+application/x-shellscript=atom.desktop;
+application/xml=atom.desktop;
+text/x-csrc=atom.desktop;
+text/x-chdr=atom.desktop;
+text/x-c++hdr=atom.desktop;
+text/x-c++src=atom.desktop;
+text/x-java=atom.desktop;
+application/x-php=atom.desktop;
+text/css=atom.desktop;
+application/javascript=atom.desktop;
+text/plain=atom.desktop;
+application/pdf=evince.desktop;
+text/x-makefile=atom.desktop;
+text/x-python=atom.desktop;atom.desktop;
