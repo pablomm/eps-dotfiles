@@ -49,11 +49,11 @@ else
 	prompt "Desea instalar en $PREFIX/eps-dotfiles ($GITREPO)?" || abort "instalacion abortada"
 
 	infoB "Clonando el repositorio"
-	git clone --recursive -v "$GITREPO" "$PREFIX/eps-scripts"
+	git clone --recursive -v "$GITREPO" "$PREFIX/eps-dotfiles"
 
 fi
 
-bash "$PREFIX/eps-scripts/setup"
+source "$PREFIX/eps-dotfiles/setup"
 
 
 }
