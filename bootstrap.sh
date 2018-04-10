@@ -37,16 +37,16 @@ infoB " eps-dotfiles -- instalacion/reconfiguracion"
 infoB "======================================================================"
 
 PREFIX="$HOME/UnidadH"
-GITREPO="https://github.com/pablomm/eps-scripts.git"
+GITREPO="https://github.com/pablomm/eps-dotfiles.git"
 
 # Preparacion
-test -d "$PREFIX" || abort "La ~/UnidadH/ no esta disponible"
+test -d "$PREFIX" || mkdir "$PREFIX" && echo "Creando UnidadH ficticia en $HOME"
 
-if [ -d "$PREFIX/eps-scripts" ]; then
-	info "Encontrada instalacion existente en $PREFIX/eps-scripts, actualizando ..."
-	(cd "$PREFIX/eps-scripts" && git pull --ff-only -v origin master && git submodule update)
+if [ -d "$PREFIX/eps-dotfiles" ]; then
+	info "Encontrada instalacion existente en $PREFIX/eps-dotfiles, actualizando ..."
+	(cd "$PREFIX/eps-dotfiles" && git pull --ff-only -v origin master && git submodule update)
 else
-	prompt "Desea instalar en $PREFIX/eps-scripts ($GITREPO)?" || abort "instalacion abortada"
+	prompt "Desea instalar en $PREFIX/eps-dotfiles ($GITREPO)?" || abort "instalacion abortada"
 
 	infoB "Clonando el repositorio"
 	git clone --recursive -v "$GITREPO" "$PREFIX/eps-scripts"
