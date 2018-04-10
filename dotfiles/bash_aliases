@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ##################################
 #  __ _| (_) __ _ ___  ___  ___  #
 # / _` | | |/ _` / __|/ _ \/ __| #
@@ -35,10 +37,12 @@ alias aerror='tail /var/log/apache2/error.log'
 
 ## Colorize the ls output ##
 alias ls='ls --color=auto'
- 
+
 ## Use a long listing format ##
-alias ll='ls -la'
- 
+alias ll='ls -l'
+alias la="ls -la"
+alias l="ls"
+
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'
 
