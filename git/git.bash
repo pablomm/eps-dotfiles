@@ -27,7 +27,7 @@ fi
 
 # User information
 if [ ! -e $USER ]; then
-	echo "Complete your user information to generate the git configuration"
+	echo "Completa la informacion de tu usuario para la configuacion global de git"
 	echo -n "Name: "
 	read name
 

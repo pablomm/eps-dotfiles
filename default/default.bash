@@ -10,12 +10,14 @@ CONFIG_ABSOLUTE="$(pwd)/mimeapps.list"
 TERMINAL_ABSOLUTE="$(pwd)/gnome-terminal.custom.xml"
 
 
-if [ -e $BACK_UP_FOLDER ]; then 
+if [ ! -e $BACK_UP_FOLDER ]; then 
 
 	mkdir $BACK_UP_FOLDER
+
 fi
 
 # Configura distribucion de teclado
+touch $BACK_UP_FOLDER/keyboard.backup
 setxkbmap -query | grep layout: | cut -d ":" -f 2 > $BACK_UP_FOLDER/keyboard.backup
 
 
