@@ -18,6 +18,7 @@ text/plain=sublime_text.desktop
 application/pdf=evince.desktop
 text/x-makefile=sublime_text.desktop
 text/x-python=sublime_text.desktop
+text/x-markdown=sublime_text.desktop
 
 [Added Associations]
 application/x-shellscript=sublime_text.desktop;
@@ -34,3 +35,4 @@ text/plain=sublime_text.desktop;
 application/pdf=evince.desktop;
 text/x-makefile=sublime_text.desktop;
 text/x-python=sublime_text.desktop;
+text/x-markdown=sublime_text.desktop;
