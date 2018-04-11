@@ -10,7 +10,7 @@ CONFIG_ABSOLUTE="$(pwd)/mimeapps.list"
 TERMINAL_ABSOLUTE="$(pwd)/gnome-terminal.custom.xml"
 
 
-if [ - e $BACK_UP_FOLDER ]; then 
+if [ -e $BACK_UP_FOLDER ]; then 
 
 	mkdir $BACK_UP_FOLDER
 fi
