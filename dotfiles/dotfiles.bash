@@ -19,7 +19,7 @@
 #     along with eps-dotfiles.  If not, see <http://www.gnu.org/licenses/>.
 
 BACK_UP_FOLDER="./backup"
-EXCLUDE="dofiles.bash README.md"
+EXCLUDE="dofiles.bash README.md backup"
 
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
@@ -39,7 +39,7 @@ function restore {
 		filename="$(basename $backup)"
 		filename="${filename%.*} "
 
-		cp "$backup" "$HOME/.$filename"
+		cp -r "$backup" "$HOME/.$filename"
 	done
 
 
@@ -63,11 +63,11 @@ for file in $(ls); do
 
 		# Si existe el fichero guardamos la copia en backups
 		if [ -e "$HOME/.$file" ]; then
-			cp "$HOME/.$file" "$BACK_UP_FOLDER/$file.backup"
+			cp -r "$HOME/.$file" "$BACK_UP_FOLDER/$file.backup"
 		fi
 
 		# Copiamos el archivo a la carpeta personal
-		cp "$file" "$HOME/.$file"
+		cp -r "$file" "$HOME/.$file"
 
 	fi
 

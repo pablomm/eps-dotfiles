@@ -6,8 +6,8 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 export config_file="configuration"
 
-if [ -f "./eps-scripts/gnome-terminal.custom.xml" ]; then
-	gconftool-2 --load="./eps-scripts/gnome-terminal.custom.xml"
+if [ -f "./gnome-terminal.custom.xml" ]; then
+	gconftool-2 --load="./gnome-terminal.custom.xml"
 fi
 
 if [ -e "$config_file" ]; then
