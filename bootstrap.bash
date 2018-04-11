@@ -23,11 +23,11 @@ C_WHITE=$(tput setaf 7)
 
 # Utilidades
 info()  { echo "$C_GREEN==> $C_NORMAL$@$C_NORMAL";              	}
-infoB() { echo "$C_GREEN==> $C_NORMAL${C_BOLD}$@$NORMAL";       	}
+infoB() { echo "$C_GREEN==> $C_NORMAL${C_BOLD}$@$C_NORMAL";       	}
 error() { echo "$C_RED==> $C_NORMAL${C_BOLD}error: $C_NORMAL$@";	}
 abort() { error "$@"; exit 1;                                   	}
 prompt() {
-	read -p "${C_YELLOW}$1 ${C_BOLD}[S/n]${C_NORMAL} " # -n 1 -r
+	read -p "${C_GREEN}$1 ${C_BOLD}[S/n]${C_NORMAL} " # -n 1 -r
 	[[ -z $REPLY || $REPLY =~ ^[YySs]$ ]]
 	return $?
 }
@@ -69,6 +69,6 @@ fi
 
 source "$PREFIX/eps-dotfiles/setup"
 
-info "Instalacion completada. Cierre la terminal para aplicar todos los cambios"
+info "Completado. Cierre la terminal para aplicar todos los cambios"
 
 }
