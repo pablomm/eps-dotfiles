@@ -3,11 +3,27 @@
 USER="gituser"
 CONFIG="gitconfig"
 GITCONFIG=$(echo -n "$HOME"/.gitconfig)
-BACK_UP="../backup/gitconfig.backup"
-BACK_UP_FOLDER="../backup"
+BACK_UP="./backup/gitconfig.backup"
+BACK_UP_FOLDER="./backup"
 
+function restore {
+
+	# Borra el archivo de home
+	rm -rf $GITCONFIG
+
+	# Si existe backup lo restaura
+	if [ -e "$BACK_UP" ]; then
+		cp $BACK_UP $GITCONFIG
+	fi
+
+}
 
 cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+if [ "$*" == "-r" ]; then
+	restore
+	exit 0
+fi
 
 # User information
 if [ ! -e $USER ]; then
