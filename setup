@@ -6,17 +6,12 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 export config_file="configuration"
 
-if [ -f "./gnome-terminal.custom.xml" ]; then
-	gconftool-2 --load="./gnome-terminal.custom.xml"
-fi
+
 
 if [ -e "$config_file" ]; then
 
 	source $config_file
-
-	# Configura distribucion de teclado
-	setxkbmap $keyboard_language
-
+	
 fi
 
 # Ejecutamos cada modulo de la carpeta si contiene un .bash con el mismo nombre

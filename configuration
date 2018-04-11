@@ -30,14 +30,3 @@ export UnidadH="$HOME/UnidadH"
 
 export EPS_SCRIPTS="$( dirname "${BASH_SOURCE[0]}" )"
 
-
-######################
-# Nombre de archivo con configuracion de mimeapps
-#
-# mimeapps.custom1.list -- google-chrome + atom
-# mimeapps.custom2.list -- google-chrome + sublime
-
-export mimeappsFile="mimeapps.custom1.list"
-
-
-
