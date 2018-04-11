@@ -30,4 +30,4 @@ for folder in $(ls -d */); do
 done
 
 
-source "~/.bashrc"
+source "$HOME/.bashrc"
