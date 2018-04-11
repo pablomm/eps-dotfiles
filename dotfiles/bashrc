@@ -152,9 +152,3 @@ swap() {
     mv "$2" "$1"
     mv $TMPFILE "$2"
 }
-
-# Funcion para guardar la configuracion de la terminal
-eps-save-term() {
-    gconftool-2 --dump '/' > "$UnidadH/eps-scripts/gnome-terminal.custom.xml"
-}
-
