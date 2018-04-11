@@ -11,14 +11,20 @@ export config_file="configuration"
 if [ -e "$config_file" ]; then
 
 	source $config_file
-	
+
+fi
+
+## Ejecutamos dotfiles como primer modulo
+if [ -e "dotfiles/dotfiles.bash" ]; then
+		./dotfiles/dotfiles.bash
 fi
 
 # Ejecutamos cada modulo de la carpeta si contiene un .bash con el mismo nombre
 for folder in $(ls -d */); do
-
-	if [ -e $folder${folder%%/}.bash ]; then
-		./$(echo -n $folder${folder%%/}.bash) || true
+	if ! [ "$folder" == "dotfiles/" ]; then
+		if [ -e $folder${folder%%/}.bash ]; then
+			./$(echo -n $folder${folder%%/}.bash) || true
+		fi
 	fi
 
 done
