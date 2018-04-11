@@ -22,3 +22,6 @@ for folder in $(ls -d */); do
 	fi
 
 done
+
+
+source "~/.bashrc"
