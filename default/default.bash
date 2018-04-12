@@ -10,18 +10,55 @@ CONFIG_ABSOLUTE="$(pwd)/mimeapps.list"
 TERMINAL_ABSOLUTE="$(pwd)/gnome-terminal.custom.xml"
 
 
-if [ ! -e $BACK_UP_FOLDER ]; then 
 
-	mkdir $BACK_UP_FOLDER
+function restore {
 
+	# Restaura configuracion de teclado
+	if ! [ -z "$(command -v setxkbmap)" ]; then
+		if [ -e "$BACK_UP_FOLDER/keyboard.backup" ]; then
+			old_keyboard="$(cat $BACK_UP_FOLDER/keyboard.backup)"
+			setxkbmap $old_keyboard
+		fi
+	fi
+
+	# Borramos el nuevo archivo
+	rm -f $MIMEAPPS
+
+	if [ -e $BACK_UP ]; then
+		cp "$BACK_UP" "$MIMEAPPS"
+	fi
+
+	# Si no esta vacia borramos la carpeta creada
+	rm -df "$HOME/.local/share/applications" &> /dev/null
+	rm -df "$HOME/.local/share" &> /dev/null
+	rm -df "$HOME/.local" &> /dev/null
+
+	# Restauramos el aspecto de terminal antiguo
+	if ! [ -z "$(command -v gconftool-2)" ]; then
+		if [ -e $BACK_UP_FOLDER/gnome-terminal.custom.xml.backup ]; then
+			gconftool-2 --load="$BACK_UP_FOLDER/gnome-terminal.custom.xml.backup"
+		fi
+	fi
+
+}
+
+# Caso restaurar configuracion anterior
+if [[ "$*" == "-r" ]] ; then
+	restore
+	exit 0
 fi
 
-# Configura distribucion de teclado
-touch $BACK_UP_FOLDER/keyboard.backup
-setxkbmap -query | grep layout: | cut -d ":" -f 2 > $BACK_UP_FOLDER/keyboard.backup
+if [ ! -e $BACK_UP_FOLDER ]; then
+	mkdir $BACK_UP_FOLDER
+fi
 
-
-setxkbmap $keyboard_language
+if ! [ -z "$(command -v setxkbmap)" ]; then
+	# Guarda la configuracion anterior
+	touch $BACK_UP_FOLDER/keyboard.backup
+	setxkbmap -query | grep layout: | cut -d ":" -f 2 > $BACK_UP_FOLDER/keyboard.backup
+	# Configura distribucion de teclado
+	setxkbmap $keyboard_language
+fi
 
 #### Configuracion de programas por defecto
 # Backup
@@ -56,10 +93,16 @@ echo >> $HOME/.bashrc
 
 ##### Configuracion de estilo terminal
 
-if [ -f "./gnome-terminal.custom.xml" ]; then
-	gconftool-2 --load="./gnome-terminal.custom.xml"
-fi
+if ! [ -z "$(command -v gconftool-2)" ]; then
 
+	# Guardamos en el backup la configuracion actual para la restauracion
+	gconftool-2 --dump '/' > "$BACK_UP_FOLDER/gnome-terminal.custom.xml.backup"
+
+	if [ -f "./gnome-terminal.custom.xml" ]; then
+		gconftool-2 --load="./gnome-terminal.custom.xml"
+	fi
+
+fi
 
 # Funcion para guardar la configuracion de la terminal
 echo "eps-save-term() {"  >> $HOME/.bashrc
