@@ -34,11 +34,9 @@ function restore {
 	done
 
 	# Restauramos version antigua
-	for backup in $(ls -d $BACK_UP_FOLDER/*.backup); do
-
+	for backup in $(ls -d $BACK_UP_FOLDER/*.backup 2>/dev/null); do
 		filename="$(basename $backup)"
 		filename="${filename%.*} "
-
 		cp -r "$backup" "$HOME/.$filename"
 	done
 

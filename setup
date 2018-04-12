@@ -34,18 +34,19 @@ fi
 
 ## Ejecutamos dotfiles como primer modulo
 if [ -e "dotfiles/dotfiles.bash" ]; then
-		./dotfiles/dotfiles.bash
+		./dotfiles/dotfiles.bash $*
 fi
 
 # Ejecutamos cada modulo de la carpeta si contiene un .bash con el mismo nombre
 for folder in $(ls -d */); do
 	if ! [ "$folder" == "dotfiles/" ]; then
 		if [ -e $folder${folder%%/}.bash ]; then
-			./$(echo -n $folder${folder%%/}.bash) || true
+			./$(echo -n $folder${folder%%/}.bash $*) || true
 		fi
 	fi
 
 done
 
-
-source "$HOME/.bashrc"
+if [ -e "$HOME/.bashrc" ]; then
+	source "$HOME/.bashrc"
+fi
