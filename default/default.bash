@@ -57,6 +57,11 @@ function restore {
 		fi
 	fi
 
+	# Restauramos fondo de pantalla
+	if [ -e "$BACK_UP_FOLDER/wallpaper.backup" ]; then
+		wallpaper=$(cat $BACK_UP_FOLDER/wallpaper.backup)
+		gsettings set org.cinnamon.desktop.background picture-uri $wallpaper
+	fi
 }
 
 # Caso restaurar configuracion anterior
@@ -129,5 +134,7 @@ echo "}"  >> $HOME/.bashrc
 
 #### Fondo de pantalla
 if [ -e "wallpaper.jpg" ]; then
+	old_wallpaper="$(gsettings get org.cinnamon.desktop.background picture-uri)"
+	echo -n $old_wallpaper > $BACK_UP_FOLDER/wallpaper.backup
 	gsettings set org.cinnamon.desktop.background picture-uri "file://$(pwd)/wallpaper.jpg"
 fi
