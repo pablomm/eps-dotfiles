@@ -125,3 +125,9 @@ fi
 echo "eps-save-term() {"  >> $HOME/.bashrc
 echo "  gconftool-2 --dump '/' > '$TERMINAL_ABSOLUTE'"  >> $HOME/.bashrc
 echo "}"  >> $HOME/.bashrc
+
+
+#### Fondo de pantalla
+if [ -e "wallpaper.jpg" ]; then
+	gsettings set org.cinnamon.desktop.background picture-uri "file://$(pwd)/wallpaper.jpg"
+fi
