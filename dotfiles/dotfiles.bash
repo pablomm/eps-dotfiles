@@ -19,7 +19,7 @@
 #     along with eps-dotfiles.  If not, see <http://www.gnu.org/licenses/>.
 
 BACK_UP_FOLDER="./backup"
-EXCLUDE="dofiles.bash README.md backup"
+EXCLUDE="dotfiles.bash README.md backup"
 
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
