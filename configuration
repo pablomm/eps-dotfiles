@@ -18,7 +18,7 @@
 #####################
 # Distribucion del teclado
 
-keyboard_language=es
+keyboard_language=en
 
 #####################
 # Path a la unidad H
@@ -29,4 +29,3 @@ export UnidadH="$HOME/UnidadH"
 # Path a la carpeta donde esta situado el repositorio
 
 export EPS_SCRIPTS="$( dirname "${BASH_SOURCE[0]}" )"
-

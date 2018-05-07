@@ -16,9 +16,6 @@ alias celar="clear"
 #Forma mas rapida de limpiar la pantalla
 alias c="clear"
 
-#Que la fuerza te acompañe
-alias starwars="telnet towel.blinkenlights.nl"
-
 #Forma corta de retroceder en carpetas
 alias ..="cd .."
 alias ...="cd ../.."
@@ -40,7 +37,8 @@ alias ls='ls --color=auto'
 
 ## Use a long listing format ##
 alias ll='ls -l'
-alias la="ls -la"
+alias la="ls -a"
+alias lla="ls -la"
 alias l="ls"
 
 ## Show hidden files ##
@@ -48,7 +46,6 @@ alias l.='ls -d .* --color=auto'
 
 # handy short cuts #
 alias h='history'
-alias j='jobs -l'
 
 alias path='echo -e ${PATH//:/\\n}'
 alias now='date +"%T"'
