@@ -32,6 +32,14 @@ if [ -e "$config_file" ]; then
 
 fi
 
+if [ "$*" == "-c"]; then
+	args="-r"
+fi
+
+if [ "$*" == "-r"]; then
+	args="-r"
+fi
+
 ## Ejecutamos dotfiles como primer modulo
 if [ -e "dotfiles/dotfiles.bash" ]; then
 		./dotfiles/dotfiles.bash $*
@@ -41,7 +49,7 @@ fi
 for folder in $(ls -d */); do
 	if ! [ "$folder" == "dotfiles/" ]; then
 		if [ -e $folder${folder%%/}.bash ]; then
-			./$(echo -n $folder${folder%%/}.bash $*) || true
+			./$(echo -n $folder${folder%%/}.bash $args) || true
 		fi
 	fi
 
@@ -49,4 +57,9 @@ done
 
 if [ -e "$HOME/.bashrc" ]; then
 	source "$HOME/.bashrc"
+fi
+
+if [ "$*" == "-c"]; then
+	cd ..
+	rm -rdf eps-dotfiles
 fi
