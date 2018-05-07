@@ -32,11 +32,11 @@ if [ -e "$config_file" ]; then
 
 fi
 
-if [ "$*" == "-c"]; then
+if [ "$*" == "-c" ]; then
 	args="-r"
 fi
 
-if [ "$*" == "-r"]; then
+if [ "$*" == "-r" ]; then
 	args="-r"
 fi
 
@@ -59,7 +59,7 @@ if [ -e "$HOME/.bashrc" ]; then
 	source "$HOME/.bashrc"
 fi
 
-if [ "$*" == "-c"]; then
+if [ "$*" == "-c" ]; then
 	cd ..
 	rm -rdf eps-dotfiles
 fi
