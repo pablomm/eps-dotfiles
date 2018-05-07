@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+function usage
+{
+    echo "usage: eps-info [-h]"
+    echo "   Show the computer info and exit"
+    echo "   Options:"
+    echo "      -p      resolves public ip too"
+    echo "      -h      displays this help and exit"
+    exit 1
+}
+
+# Time to abort the request (in seconds)
+TIMEOUT=7
+SERVER="ipinfo.io/ip"
+
+
+if [[ $@ =~ (^|[[:space:]])-h($|[[:space:]]) ]]; then
+
+    usage
+
+ else
+
+
+ 	echo -e "User:\t\t"$USER
+ 	echo -e "Private IP:\t"$(hostname -I | cut -f 1 -d " ")
+ 	echo -e "Gateway:\t"$(ip route show | grep -i 'default via'| awk '{print $3 }')
+
+ 	# Make request against ipinfo.io to get the public ip
+ 	if [[ $@ =~ (^|[[:space:]])-p($|[[:space:]]) ]]; then
+	 	echo -e -n "Public IP:\txxx.xxx.xxx.xxx (Sending request to ipinfo.io)"
+		echo -e -n "\rPublic IP:\t                                             "
+
+		# Make request with curl
+		public_ip=$(timeout $TIMEOUT curl -s $SERVER)
+
+	 	if [ -n "$public_ip" ]; then
+
+		 	echo -e "\rPublic IP:\t"$public_ip
+	 	else
+	 		echo "Public IP:\t (Not found)"
+	 	fi
+ 	fi
+
+ fi
