@@ -43,6 +43,10 @@ if [ "$*" == "-r" ]; then
 	exit 0
 fi
 
+# Vaciamos la carpeta backups para no obtener
+# estado inconsistente
+rm -rf $BACK_UP_FOLDER/*
+
 # User information
 if [ ! -e $USER ]; then
 	echo "Completa la informacion de tu usuario para la configuacion global de git"

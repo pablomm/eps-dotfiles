@@ -74,6 +74,10 @@ if [ ! -e $BACK_UP_FOLDER ]; then
 	mkdir $BACK_UP_FOLDER
 fi
 
+# Vaciamos la carpeta backups para no obtener
+# estado inconsistente
+rm -rf $BACK_UP_FOLDER/*
+
 if ! [ -z "$(command -v setxkbmap)" ]; then
 	# Guarda la configuracion anterior
 	touch $BACK_UP_FOLDER/keyboard.backup

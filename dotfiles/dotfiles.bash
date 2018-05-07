@@ -54,6 +54,10 @@ if [[ "$*" == "-r" ]] ; then
 	exit 0
 fi
 
+# Vaciamos la carpeta backups para no obtener
+# estado inconsistente
+rm -rf $BACK_UP_FOLDER/*
+
 for file in $(ls); do
 
 	# Iteramos
