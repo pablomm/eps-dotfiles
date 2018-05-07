@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Cambia el fondo de pantalla por una imagen
+# aleatoria de la pagina unsplash.com
+
+temp=$(mktemp)
+
+# Elegimos una foto aleatoriamente de una de las colecciones
+# Para obtener ids de mas colleciones ir a la pagina
+# https://unsplash.com/collections/
+
+colecciones="1092413 1238743"
+
+coleccion="1238743"
+
+curl -fsSL https://source.unsplash.com/random?collections=$coleccion > $temp
+gsettings set org.cinnamon.desktop.background picture-uri "file://$temp"
+
+
+# Borramos archivo temporal antiguo si existe y guardamos ultimo
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+cd ../default/backup
+
+if [ -e "last_random.backup" ]; then
+
+  last=$(cat last_random.backup)
+
+  rm -f $last
+
+fi
+
+# No necesario pero por si acaso
+touch 'last_random.backup'
+
+# Volcamos ultimo archivo temporal
+echo -n $temp > 'last_random.backup'
