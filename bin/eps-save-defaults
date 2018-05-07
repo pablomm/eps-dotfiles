@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+MIMEAPPS=$(echo -n "$HOME/.local/share/applications/mimeapps.list")
+CONFIG="../default/mimeapps.list"
+
+# Copiamos el archivo
+cp $MIMEAPPS $CONFIG"

@@ -111,11 +111,7 @@ fi
 
 cp $CONFIG_ABSOLUTE $MIMEAPPS
 
-echo >> $HOME/.bashrc
-echo "function eps-save-defaults {" >> $HOME/.bashrc
-echo " cp $MIMEAPPS $CONFIG_ABSOLUTE" >> $HOME/.bashrc
-echo "}" >> $HOME/.bashrc
-echo >> $HOME/.bashrc
+
 
 ##### Configuracion de estilo terminal
 
@@ -129,12 +125,6 @@ if ! [ -z "$(command -v gconftool-2)" ]; then
 	fi
 
 fi
-
-# Funcion para guardar la configuracion de la terminal
-echo "eps-save-term() {"  >> $HOME/.bashrc
-echo "  gconftool-2 --dump '/' > '$TERMINAL_ABSOLUTE'"  >> $HOME/.bashrc
-echo "}"  >> $HOME/.bashrc
-
 
 #### Fondo de pantalla
 if [ -e "wallpaper.jpg" ]; then

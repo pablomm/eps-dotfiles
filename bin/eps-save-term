@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Funcion para guardar la configuracion de la terminal
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+# Ruta relativa a fichero de volcado de la configuracion
+TERMINAL="../default/gnome-terminal.custom.xml"
+
+gconftool-2 --dump '/' > '$TERMINAL'
