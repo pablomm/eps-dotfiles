@@ -9,11 +9,14 @@ temp=$(mktemp)
 # Para obtener ids de mas colleciones ir a la pagina
 # https://unsplash.com/collections/
 
-colecciones="1092413 1238743"
+# Se necesita autenticarse para usar filtros en la api rest
+#colecciones="1092413 1238743"
+#coleccion="1238743"
+#curl -fsSL https://source.unsplash.com/random?collections=$coleccion > $temp
 
-coleccion="1238743"
+curl -fsSL https://source.unsplash.com/random > $temp
 
-curl -fsSL https://source.unsplash.com/random?collections=$coleccion > $temp
+
 gsettings set org.cinnamon.desktop.background picture-uri "file://$temp"
 
 
